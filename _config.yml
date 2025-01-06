@@ -1,8 +1,7 @@
 # Site Settings
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
-description: Jekflix is a template for Jekyll inspired by Netflix and made by
-  Thiago Rossener.
+name: Lambda-flix
+title: Lambda-flix | Idea Blog
+description: News and Our Stories in our Projects.
 tags:
   - blog
   - template
@@ -110,4 +109,4 @@ exclude: [
 ]
 
 # Theme
-version: v3.1.2
+version: 5th

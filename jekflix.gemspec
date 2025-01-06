@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 Gem::Specification.new do |spec|
-  spec.name          = "jekflix"
-  spec.version       = "3.1.2"
-  spec.authors       = ["Thiago Rossener"]
-  spec.email         = ["thiago@rossener.com"]
+  spec.name          = "Lambda Idea-Blog"
+  spec.version       = "5th"
+  spec.authors       = ["Dongchan Alex kim"]
+  spec.email         = ["dongchan.kim.1@stonybrook.edu"]
 
   spec.summary       = "A Jekyll theme inspired by Netflix."
   spec.homepage      = "https://jekflix.rossener.com/"
