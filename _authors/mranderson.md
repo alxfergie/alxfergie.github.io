@@ -1,9 +1,9 @@
 ---
 layout: author
 photo: /assets/img/uploads/profile.png
-name: mranderson
-display_name: Mr. Anderson
-position: The One
+name: dongckim
+display_name: Dongchan Alex Kim
+position: Vice President
 bio: Bulletproof hacker passionate about leather clothes.
 github_username: github_username
 facebook_username: facebook_username

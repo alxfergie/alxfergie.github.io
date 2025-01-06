@@ -1,7 +1,7 @@
 # Site Settings
-name: Lambda-flix
+name: LAMBDA-FLIX
 title: Lambda-flix | Idea Blog
-description: News and Our Stories in our Projects.
+description: LAMBDA-FLIX is a platform that upload our news and stories.
 tags:
   - blog
   - template
@@ -20,7 +20,7 @@ menu:
     url: /feed.xml
 email: youremail@test.com
 # See: https://disqus.com/
-disqus_username: disqus_username
+disqus_username: lambdaflix
 # Contact Form Setting
 # See: https://formspree.io/
 formspree_form_id: formspree_form_id
