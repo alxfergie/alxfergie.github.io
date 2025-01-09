@@ -4,7 +4,7 @@ photo: /assets/img/uploads/profile.png
 name: dongckim
 display_name: Dongchan Alex Kim
 position: Vice President
-bio: Bulletproof hacker passionate about leather clothes.
+bio: A goal without plan is just a wish.
 github_username: github_username
 facebook_username: facebook_username
 twitter_username: twitter_username
