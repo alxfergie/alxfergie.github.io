@@ -4,7 +4,7 @@ layout: post
 title: Three.js로 3D 플랫폼 개발 [Dom/SVG/Canvas]
 subtitle: '3D 플랫폼 개발에 앞서, 기본 배경 지식 정리'
 description: >-
-  '김동찬입니다.'
+  Dom의 구성요소와 SVG 요소 그리고 Canvas에 대해서 알아본다. 이 들의 차이점으로부터 3D 플랫폼에 쓰이는 도구에 대해서 조금 더 알아가는 시간을 갖어보자.
 image: 2025-01-07-threejs-dom/cover.png
 optimized_image: 2025-01-07-threejs-dom/cover.png
   
