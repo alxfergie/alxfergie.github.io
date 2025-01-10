@@ -119,4 +119,45 @@ $ git push origin 20250110
 ### Pull Request 생성
 push 완료 후 본인 계정의 github 저장소에 들어오면 Compare & pull reqeust 버튼이 활성화 되어 있다.
 - 해당 버튼을 선택하여 메시지를 작성하고 PR을 생성한다.
-- 만약 생성이 안될 수도 있는데, 그땐 수동으로 만들어도 괜찮다.
+- 만약 생성이 안될 수도 있는데, 그땐 수동으로 만들어도 괜찮다.(관리자 승인 후)
+
+![]({{site.url}}/assets/img/2025-01-10-github-collab/comparepull.png)
+
+- 이후 Open a Pull Request 창이 뜰텐데, 여기서 오른쪽에 보이는 Assignee를 본인 관리자를 지정한 후, 안에 승인 받을 내용을 작성한 이후에 Create a pull request 버튼을 누르면 되겠다.
+
+### 코드리뷰, Merge Pull Request
+- PR을 받은 Assignee 관리자는 코드 변경내역을 확인하고 Merge 여부를 결정한다.
+
+Master 브랜치로 Compare&Merge는 최종검토 후 배포 여부 결정한 이후 임원진만 하도록 합시다.
+
+### Merge가 완료된 이후.
+- Merge가 완료된 이후에는 로컬 코드와 원본 저장소의 코드를 동기화 해야한다.
+
+```bash
+# 본인 브랜치에서 master branch로 나가기
+$ git checkout master
+```
+
+- Master 브랜치로 넘어왔다면, git pull을 하라는 명령어가 보일 것이다.
+
+![]({{site.url}}/assets/img/2025-01-10-github-collab/terminal.png)
+
+> 원격 서버의 Master는 당신이 넣은 코드와 merge가 되면서 모든 코드가 최신화 되었다. 하지만 당신의 로컬 Master에는 아직 Merge가 되기 전이기 때문에, 최신화가 필요할 것이다. 그래서 원격서버로부터 `pull` 당겨온다는 뜻이다.
+
+```bash
+# 코드 동기화
+$ git pull 
+# 브랜치 삭제
+$ git branch -d 20250110
+```
+
+같은 방식으로 계속 진행하면 될 것 같다.
+
+![]({{site.url}}/assets/img/2025-01-10-github-collab/gitlog.png)
+
+위 사진 처럼 하나의 분기점에서 당신의 브랜치가 생성되어 버전을 만들고, 이 버전이 다시 원본에 합쳐지면서 하나의 큰 줄기가 만들어진다. 
+
+이 모든 과정을 `버전관리` 라고 부른다.
+
+
+이 설명서만 따라한다면, 당신은 벌써 기술 프로젝트에 참여하고 있는 기획자라는 점에서 시장가치, 몸값이 이미 2배는 뛰었다. (농담이다 그냥 넘어가라)
