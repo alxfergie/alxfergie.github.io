@@ -8,7 +8,7 @@ description: >-
 image: 2025-01-07-threejs-dom/cover.png
 optimized_image: 2025-01-07-threejs-dom/cover.png
   
-category: Three
+category: Threejs
 tags:
   - DOM
   - SVG

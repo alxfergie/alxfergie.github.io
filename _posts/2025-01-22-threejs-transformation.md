@@ -1,12 +1,12 @@
 ---
-date: 2025-01-17-threejs-Renderer
+date: 2025-01-22-threejs-transformation
 layout: post
 title: 노베이스가 말아주는 3D Transformation
 subtitle: '그룹화된 객체의 제어와 로컬-월드 좌표계의 차이를 중심으로 3D 공간에서의 구조적 활용을 심화'
 description: >-
   R3F를 이용한 position, scale, rotation 구현하기.
 image: 2025-01-22-threejs-transformation/thumbnail.png
-optimized_image: 2025-01-17-threejs-renderer/thumbnail.png
+optimized_image: 2025-01-22-threejs-transformation/thumbnail.png
 category: Threejs
 tags:
   - Position
