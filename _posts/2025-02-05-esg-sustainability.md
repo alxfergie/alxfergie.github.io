@@ -1,5 +1,5 @@
 ---
-date: 2025-01-19-esg-sustainability
+date: 2025-02-05-esg-sustainability
 layout: post
 title: ESG 생존경영 WEEK 2
 subtitle: 'Written by ESG Team'
