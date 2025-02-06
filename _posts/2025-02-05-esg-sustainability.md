@@ -15,6 +15,7 @@ tags:
 author: jihee  
 paginate: false
 ---
+# 2장 : 초혁신 시대, 기술로 ESG경영을 리드하라
 
 ## 2-1 : 기업의 패러다임을 전환시키는 ESG 경영
 
