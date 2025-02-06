@@ -1,0 +1,209 @@
+---
+date: 2025-01-26-sql-groupby
+layout: post
+title:  SQL ‘GROUP BY’ Problem Solving
+subtitle: 'Written by Data Analysis Team'
+description: >-
+  Solving SQL Function GROUP BY Problems on Programmers
+image: 2025-01-26-sql-groupby/thumb.png
+optimized_image: 2025-01-26-sql-groupby/thumb.png
+category: Corporate Analysis
+tags:
+  - Data
+  - Data Analysis
+  - Problem-Solving
+author: jihee
+paginate: false
+---
+
+## 1. 자동차 종류 별 특정 옵션이 포함된 자동차 수 구하기
+
+```sql
+-- 이지희 답안지
+SELECT CAR_TYPE,
+       COUNT(*) CARS
+FROM CAR_RENTAL_COMPANY_CAR
+WHERE OPTIONS REGEXP '통풍시트|열선시트|가죽시트'
+GROUP BY CAR_TYPE
+ORDER BY CAR_TYPE;
+
+-- 최온혁 답안지
+SELECT CAR_TYPE,
+       COUNT(*) AS CARS
+FROM CAR_RENTAL_COMPANY_CAR
+WHERE OPTIONS LIKE '%시트%'
+GROUP BY CAR_TYPE
+ORDER BY CAR_TYPE;
+
+-- 김준희 답안지
+SELECT CAR_TYPE, COUNT(*) AS CARS
+FROM CAR_RENTAL_COMPANY_CAR
+WHERE OPTIONS LIKE '%열선시트%' OR OPTIONS LIKE '%통풍시트%' OR OPTIONS LIKE '%가죽시트%'
+GROUP BY CAR_TYPE
+ORDER BY CAR_TYPE ASC;
+
+-- 문종현 답안지
+SELECT
+    CAR_TYPE,
+    COUNT(*) AS CARS
+FROM CAR_RENTAL_COMPANY_CAR
+WHERE OPTIONS LIKE '%통풍시트%'
+    OR OPTIONS LIKE '%열선시트%'
+    OR OPTIONS LIKE '%가죽시트%'
+GROUP BY CAR_TYPE
+ORDER BY CAR_TYPE ASC;
+```
+---
+
+
+## 2. 진료과별 총 예약 횟수 출력하기
+
+```sql
+-- 최은혁 답안지
+SELECT MCDP_CD AS '진료과 코드',
+       COUNT(PT_NO) AS '5월예약건수'
+FROM APPOINTMENT
+WHERE DATE_FORMAT(APNT_YMD, '%Y-%m') = '2022-05'
+GROUP BY MCDP_CD
+ORDER BY 2, 1;
+
+-- 이지희 답안지
+SELECT MCDP_CD '진료과코드', COUNT(PT_NO) '5월예약건수'
+FROM APPOINTMENT A
+WHERE YEAR(APNT_YMD) = '2022' AND MONTH(APNT_YMD) = '05'
+GROUP BY MCDP_CD
+ORDER BY 5월예약건수, 진료과코드;
+
+-- 김준희 답안지
+SELECT MCDP_CD AS '진료과 코드', COUNT(*) AS '5월예약건수'
+FROM APPOINTMENT
+WHERE DATE_FORMAT(APNT_YMD, '%Y-%m') = '2022-05'
+GROUP BY MCDP_CD
+ORDER BY COUNT(*) ASC, MCDP_CD ASC;
+
+-- 문종현 답안지
+SELECT
+    MCDP_CD AS 진료과코드,
+    COUNT(*) AS 5월예약건수
+FROM APPOINTMENT
+WHERE APNT_YMD LIKE '2022-05-%'
+-- 또는 WHERE DATE_FORMAT(APNT_YMD, '%Y-%m') = '2022-05'
+GROUP BY MCDP_CD
+ORDER BY 5월예약건수 ASC, 진료과코드 ASC; -- 별칭 사용 가능
+```
+
+---
+
+## 3. 입양 시각 구하기 (1)
+
+```sql
+-- 이지희 답안지
+SELECT HOUR(DATETIME) HOUR,
+       COUNT(DATETIME) COUNT
+FROM ANIMAL_OUTS
+GROUP BY HOUR
+HAVING HOUR >= 9 AND HOUR <= 19
+ORDER BY HOUR;
+
+-- 김준희 답안지
+SELECT DATE_FORMAT(DATETIME, '%H') AS HOUR, COUNT(*) AS COUNT
+FROM ANIMAL_OUTS
+WHERE DATE_FORMAT(DATETIME, '%H') BETWEEN 09 AND 19
+GROUP BY DATE_FORMAT(DATETIME, '%H')
+ORDER BY DATE_FORMAT(DATETIME, '%H') ASC;
+
+-- 최은혁 답안지
+SELECT HOUR(DATETIME) AS 'HOUR',
+       COUNT(ANIMAL_ID) AS 'COUNT'
+FROM ANIMAL_OUTS
+WHERE HOUR(DATETIME) BETWEEN 9 AND 19
+GROUP BY HOUR
+ORDER BY HOUR;
+
+-- 문종현 답안지
+SELECT
+    HOUR(DATETIME) AS HOUR,
+    COUNT(*) AS COUNT
+FROM ANIMAL_OUTS
+/* having 대신 where hour(datetime) between 9 and 20 :
+   where 은 select에 필터링 하기 때문에 (datetime) 필요 / as 별칭 사용 불가,
+   별칭 인식하기 전 단계 */
+GROUP BY HOUR -- 여기서는 별칭 인식하고 있는 단계이기 때문에 사용 가능
+HAVING HOUR BETWEEN 9 AND 19
+ORDER BY HOUR ASC;
+```
+---
+
+## 4. 조건에 맞는 사원 정보 조회하기
+
+```sql
+-- 이지희 답안지
+SELECT SUM(G.SCORE) SCORE,
+       G.EMP_NO,
+       E.EMP_NAME,
+       E.POSITION,
+       E.EMAIL
+FROM HR_GRADE G
+JOIN HR_EMPLOYEES E ON G.EMP_NO = E.EMP_NO
+GROUP BY G.EMP_NO
+ORDER BY SCORE DESC
+LIMIT 1;
+
+-- 김준희 답안지
+SELECT SUM(SCORE) AS SCORE, EMP.EMP_NO, EMP.EMP_NAME,
+       EMP.POSITION, EMP.EMAIL
+FROM HR_DEPARTMENT AS DE
+INNER JOIN HR_EMPLOYEES AS EMP ON DE.DEPT_ID = EMP.DEPT_ID
+INNER JOIN HR_GRADE AS GR ON EMP.EMP_NO = GR.EMP_NO
+GROUP BY EMP_NO
+ORDER BY SCORE DESC
+LIMIT 1;
+
+-- 최은혁 답안지
+SELECT SUM(SCORE) AS SCORE, a.EMP_NO, a.EMP_NAME, a.POSITION, a.EMAIL
+FROM HR_EMPLOYEES a
+JOIN HR_GRADE b
+ON a.EMP_NO = b.EMP_NO
+WHERE YEAR = 2022
+GROUP BY a.EMP_NO
+ORDER BY SCORE DESC
+LIMIT 1;
+```
+---
+
+## 5. 입양 시각 구하기 (2)
+
+```sql
+-- 이지희 답안지
+SET @HOUR = -1;
+SELECT @HOUR := @HOUR + 1 HOUR,
+       (SELECT COUNT(*) COUNT
+        FROM ANIMAL_OUTS
+        WHERE @HOUR = HOUR(DATETIME)) COUNT
+FROM ANIMAL_OUTS
+WHERE @HOUR < 23;
+
+-- 김준희 답안지
+SET @H = -1;  -- 변수 만들기
+
+SELECT (@H := @H + 1) AS HOUR,
+       (SELECT COUNT(*)
+        FROM ANIMAL_OUTS
+        WHERE HOUR(DATETIME) = @H) AS COUNT
+FROM ANIMAL_OUTS
+WHERE @H < 23;
+
+-- 최은혁 답안지
+WITH RECURSIVE hours AS (
+    SELECT 0 AS HOUR
+    UNION ALL
+    SELECT HOUR + 1 FROM hours WHERE HOUR < 23
+)
+SELECT h.HOUR,
+       COUNT(a.DATETIME) AS COUNT
+FROM hours h
+LEFT JOIN ANIMAL_OUTS a
+ON h.HOUR = HOUR(a.DATETIME)
+GROUP BY h.HOUR
+ORDER BY h.HOUR;
+```
