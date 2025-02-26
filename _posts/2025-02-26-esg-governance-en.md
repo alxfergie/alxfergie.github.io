@@ -1,7 +1,7 @@
 ---
 date: 2025-02-26-esg-governance-en
 layout: post
-title: (ENG) ESG Survival Business WEEK 4
+title: (ENG) ESG Survival Business WEEK 5
 subtitle: 'Written by ESG Team'
 description: >-
   ESG Social Strategy for Business and People

@@ -1,7 +1,7 @@
 ---
 date: 2025-02-26-esg-governance
 layout: post
-title: ESG 생존경영 WEEK 4
+title: ESG 생존경영 WEEK 5
 subtitle: 'Written by ESG Team'
 description: >-
   ESG Social Strategy for Business and People
