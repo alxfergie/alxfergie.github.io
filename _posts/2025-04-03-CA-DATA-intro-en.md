@@ -4,14 +4,14 @@ layout: post
 title: (ENG) Corporate Analysis, DATA Analysis.
 subtitle: 'Written by CA-DATA Team'
 description: >-
-  Play Life Like a Game
+  Corporate Analysis, Data 
 image: 2025-04-03-CA-DATA-intro/thumb.png
 optimized_image: 2025-04-03-CA-DATA-intro/thumb.png
 category: Data Analysis
 tags:
-  - Ideation 
-  - Creativity 
-  - Strategy
+  - Data
+  - Data Analysis
+  - Problem-Solving 
 author: jihee
 paginate: false
 ---

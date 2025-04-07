@@ -4,14 +4,14 @@ layout: post
 title: Corporate Analysis, 데이터분석 팀 1주차
 subtitle: 'Written by CA-DATA Team'
 description: >-
-  Play Life Like a Game
+  Corporate Analysis, Data 
 image: 2025-04-03-CA-DATA-intro/thumb.png
 optimized_image: 2025-04-03-CA-DATA-intro/thumb.png
 category: Data Analysis
 tags:
-  - Creation 
-  - Idea 
-  - Opportunity
+  - Data
+  - Data Analysis
+  - Problem-Solving 
 author: jihee
 paginate: false
 ---
